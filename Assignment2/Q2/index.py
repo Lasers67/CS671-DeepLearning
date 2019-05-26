@@ -31,8 +31,8 @@ anle_layer1_n_neurons=256
 anle_layer2_n_neurons=32
 inp=np.load("TRAIN.npy")
 y1,y2,y3,y4=np.load("y1.npy"),np.load("y2.npy"),np.load("y3.npy"),np.load("y4.npy")
-x_train, x_test = inp[:int(0.8*len(inp))],inp[int(0.8*len(inp)):] 
-y1_train, y1_test, y2_train, y2_test, y3_train, y3_test, y4_train, y4_test = y1[:int(0.8*len(y1))],y1[int(0.8*len(y1)):],y2[:int(0.8*len(y2))],y2[int(0.8*len(y2)):],y3[:int(0.8*len(y3))],y3[int(0.8*len(y3)):],y4[:int(0.8*len(y4))],y4[int(0.8*len(y4)):]  
+x_train, x_test = inp[:int(0.8*len(inp))],inp[int(0.8*len(inp)):]
+y1_train, y1_test, y2_train, y2_test, y3_train, y3_test, y4_train, y4_test = y1[:int(0.8*len(y1))],y1[int(0.8*len(y1)):],y2[:int(0.8*len(y2))],y2[int(0.8*len(y2)):],y3[:int(0.8*len(y3))],y3[int(0.8*len(y3)):],y4[:int(0.8*len(y4))],y4[int(0.8*len(y4)):]
 # print(TRAIN[0])
 # print(TRAIN[0])
 # print TRAIN[0]
@@ -46,8 +46,6 @@ y1_train, y1_test, y2_train, y2_test, y3_train, y3_test, y4_train, y4_test = y1[
 from PIL import Image
 img_to_visualize=Image.open("Data/Class1/0_0_0_0_23.jpg")
 img_to_visualize = np.asarray(img_to_visualize)
-
-
 
 input_layer=Input(shape=(28, 28, 3))
 conv1 = Conv2D(32, kernel_size=(5,5), strides=1,padding="same",activation="relu")(input_layer)
